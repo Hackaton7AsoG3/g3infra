@@ -1,6 +1,6 @@
-#cloudrun
-resource "google_cloud_run_service" "default" {
-  name     = "cloudrun-srv"
+#cloudrun Front
+resource "google_cloud_run_service" "front" {
+  name     = "cloudrun-front"
   location = "us-central1"
 
   template {
