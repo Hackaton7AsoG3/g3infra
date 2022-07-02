@@ -54,3 +54,11 @@ resource "google_sql_database_instance" "instance" {
 
   deletion_protection  = "true"
 }
+
+resource "google_artifact_registry_repository" "g3image" {
+  provider = google-beta
+  location = "us-central1"
+  repository_id = "g3image"
+  description = "Imagens Docker"
+  format = "DOCKER"
+}
