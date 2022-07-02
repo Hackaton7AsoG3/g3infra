@@ -17,6 +17,26 @@ resource "google_cloud_run_service" "front" {
   }
 }
 
+
+#cloudrun Back
+resource "google_cloud_run_service" "back" {
+  name     = "cloudrun-back"
+  location = "us-central1"
+
+  template {
+    spec {
+      containers {
+        image = "us-docker.pkg.dev/cloudrun/container/hello"
+      }
+    }
+  }
+
+  traffic {
+    percent         = 100
+    latest_revision = true
+  }
+}
+
 #mySQL
 resource "google_sql_database" "database" {
   name     = "my-database"
